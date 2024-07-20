@@ -3,3 +3,4 @@ zones/*.jbk
 zones/*.signed
 zones/*.jnl
 dsset/
+zones/*
