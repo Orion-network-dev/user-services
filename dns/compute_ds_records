@@ -1,0 +1,10 @@
+#!/bin/bash
+
+mkdir -p dsset
+rm -rf dsset/*
+for filename in cache/*.key; do
+    touch "dsset/records.dsset"
+    dnssec-dsfromkey "$filename" > "dsset/records.dsset"
+done
+
+echo "Your DS records files if available in dsset/records.dsset"

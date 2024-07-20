@@ -1,2 +1,21 @@
 version: '3'
 
+services:
+  bind:
+    image: ubuntu/bind9
+    restart: unless-stopped
+    volumes:
+      - ./named.conf:/etc/bind/named.conf:rw
+      - ./cache:/var/cache/bind:rw
+      - ./zones:/var/lib/bind:rw
+    ports:
+      - '53:53/udp'
+    networks:
+      dns:
+        ipv4_address: 172.66.0.2
+
+networks:
+  dns:
+    ipam:
+      config:
+        - subnet: 172.66.0.0/29
