@@ -16,9 +16,11 @@ services:
       test: "ss --listening --tcp | grep -P 'LISTEN.+:smtp' || exit 1"
       timeout: 3s
       retries: 0
-
+    networks:
+      mail:
+        ipv4_address: 172.66.1.2
 networks:
-  dns:
+  mail:
     ipam:
       config:
         - subnet: 172.66.1.0/29
