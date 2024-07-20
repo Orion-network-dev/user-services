@@ -1,0 +1,3 @@
+#!/bin/sh
+
+tsig-keygen -a HMAC-SHA512 localupdate. >> bind.d/tsig-key.conf

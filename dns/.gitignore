@@ -4,4 +4,3 @@ zones/*.signed
 zones/*.jnl
 dsset/
 zones/*
-named.conf
