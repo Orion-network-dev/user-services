@@ -1,2 +1,4 @@
 cache/
-zones/*.{jbk,signed,jnl}
+zones/*.jbk
+zones/*.signed
+zones/*.jnl
