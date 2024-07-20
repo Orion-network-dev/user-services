@@ -6,6 +6,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./named.conf:/etc/bind/named.conf:rw
+      - ./bind.d:/etc/bind/named.conf.d:rw
       - ./cache:/var/cache/bind:rw
       - ./zones:/var/lib/bind:rw
     ports:
