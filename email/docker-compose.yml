@@ -2,7 +2,6 @@ services:
   mailserver:
     image: ghcr.io/docker-mailserver/docker-mailserver:latest
     container_name: mailserver
-    hostname: 1.orionet.re
     env_file: mailserver.env
     volumes:
       - ./mail-data/dms/mail-data/:/var/mail/
@@ -18,15 +17,15 @@ services:
       retries: 0
     networks:
       mail:
-        ipv4_address: 172.66.1.2
+        ipv4_address: 172.25.1.2
   roundcube:
     image: roundcube/roundcubemail
     env_file: roundcube.env
     networks:
       mail:
-        ipv4_address: 172.66.1.3
+        ipv4_address: 172.25.1.3
 networks:
   mail:
     ipam:
       config:
-        - subnet: 172.66.1.0/28
+        - subnet: 172.25.1.0/28
