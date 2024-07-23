@@ -1,2 +1,18 @@
 #!/bin/sh
 
+for i in "$@"; do
+  case $i in
+    -z=*|--zone=*)
+      ZONE="${i#*=}"
+      shift # past argument=value
+      ;;
+    -*|--*)
+      echo "Unknown option $1"
+      exit 1
+      ;;
+  esac
+done
+
+# Reload and resign the zone in the container
+echo "Zone is $ZONE"
+docker compose exec bind "bash -c 'rndc freeze $ZONE; rndc reload $ZONE; rndc unfreeze $ZONE'"
