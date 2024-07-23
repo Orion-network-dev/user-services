@@ -13,10 +13,10 @@ services:
       - '53:53/udp'
     networks:
       dns:
-        ipv4_address: 172.66.0.2
+        ipv4_address: 172.25.0.2
 
 networks:
   dns:
     ipam:
       config:
-        - subnet: 172.66.0.0/29
+        - subnet: 172.25.0.2/29
