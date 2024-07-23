@@ -15,4 +15,4 @@ done
 
 # Reload and resign the zone in the container
 echo "Zone is $ZONE"
-docker compose exec bind bash -c 'rndc freeze $ZONE; rndc reload $ZONE; rndc unfreeze $ZONE'
+docker compose exec bind bash -c \"rndc freeze $ZONE; rndc reload $ZONE; rndc unfreeze $ZONE\"
