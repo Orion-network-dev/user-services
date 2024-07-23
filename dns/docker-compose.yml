@@ -9,8 +9,6 @@ services:
       - ./bind.d:/etc/bind/named.conf.d:rw
       - ./cache:/var/cache/bind:rw
       - ./zones:/var/lib/bind:rw
-    ports:
-      - '53:53/udp'
     networks:
       dns:
         ipv4_address: 172.25.0.2
